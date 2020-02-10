@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
+import { IntroductionHeaderComponent } from './introduction/introduction-header/introduction-header.component';
+import { IntroductionTextComponent } from './introduction/introduction-text/introduction-text.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 
 @NgModule({
@@ -12,6 +14,8 @@ import { IntroductionComponent } from './introduction/introduction.component';
     AppComponent,
     NavbarComponent,
     ContactComponent,
+    IntroductionHeaderComponent,
+    IntroductionTextComponent,
     IntroductionComponent,
   ],
   imports: [

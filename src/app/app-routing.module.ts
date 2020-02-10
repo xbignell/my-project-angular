@@ -6,7 +6,14 @@ import {IntroductionComponent} from './introduction/introduction.component';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
-  { path: 'introduction', component: IntroductionComponent }
+  { path: 'introduction', component: IntroductionComponent },
+  {
+    path: '',
+    component: IntroductionComponent,
+    data: {
+      title: 'Xavier Bignell'
+    }
+  }
 ];
 
 @NgModule({
