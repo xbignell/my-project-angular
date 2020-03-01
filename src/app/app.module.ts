@@ -9,6 +9,9 @@ import { IntroductionHeaderComponent } from './introduction/introduction-header/
 import { IntroductionTextComponent } from './introduction/introduction-text/introduction-text.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,10 +22,13 @@ import { FooterComponent } from './footer/footer.component';
     IntroductionTextComponent,
     IntroductionComponent,
     FooterComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
