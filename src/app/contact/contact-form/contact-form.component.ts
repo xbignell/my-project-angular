@@ -1,7 +1,7 @@
 import {Component, NgModule} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
+import {ConfigService} from '../../config.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,10 +11,11 @@ import {catchError} from 'rxjs/operators';
 
 export class ContactFormComponent {
   contactForm;
+  submitUrl;
 
-  constructor(private formBuilder: FormBuilder, private client: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private client: HttpClient, private config: ConfigService) {
     this.contactForm = this.formBuilder.group({
-      content: '',
+      textContent: '',
       telephone: '',
       email: '',
       name: ''
@@ -22,15 +23,21 @@ export class ContactFormComponent {
   }
 
   onSubmit(customerData) {
+    this.config.getConfig()
+      .subscribe(data => {
+        this.submitUrl = data['contactApiUrl'];
+        this.launch(customerData);
+      });
+    this.contactForm.reset();
+  }
+
+  launch(customerData) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
     };
 
-    this.client.post('http://localhost:8000/api/contact', customerData, httpOptions).subscribe();
-    this.contactForm.reset();
+    this.client.post(this.submitUrl, customerData, httpOptions).subscribe();
   }
-
-
 }

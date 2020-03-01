@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Globals} from './globals';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +8,11 @@ import {HttpClient} from '@angular/common/http';
 
 export class ConfigService {
 
-  configParameters = "assets/config.json";
-
-  constructor(private client: HttpClient) {}
+  constructor(private client: HttpClient, private globals: Globals) {}
 
   getConfig() {
-    return this.client.get(this.configParameters);
+    let configParameters = this.globals.assetsUriConfig;
+    return this.client.get(configParameters);
   }
 
 }

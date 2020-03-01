@@ -1,7 +1,7 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
   <div class="form-group">
     <label>
-      <textarea name="content-text" formControlName="content" placeholder="Content with text" rows="4" cols="50"></textarea>
+      <textarea name="content-text" formControlName="textContent" placeholder="Content with text" rows="4" cols="50"></textarea>
     </label>
     <label for="name">Name*</label>
     <input id="name" type="text" formControlName="name" />

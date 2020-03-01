@@ -6,4 +6,5 @@ import { Injectable } from '@angular/core';
 })
 export class Globals {
   standardTitle :string = "XBignell - ";
+  assetsUriConfig :string = "assets/config.json";
 }
