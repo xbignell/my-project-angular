@@ -2,6 +2,7 @@ import {Component, NgModule} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ConfigService} from '../../config.service';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,14 +13,16 @@ import {ConfigService} from '../../config.service';
 export class ContactFormComponent {
   contactForm;
   submitUrl;
+  textDefault;
 
-  constructor(private formBuilder: FormBuilder, private client: HttpClient, private config: ConfigService) {
+  constructor(private formBuilder: FormBuilder, private client: HttpClient, private config: ConfigService, private globals: Globals) {
     this.contactForm = this.formBuilder.group({
       textContent: '',
       telephone: '',
       email: '',
       name: ''
     });
+    this.textDefault = this.globals.contentTextAreaContact;
   }
 
   onSubmit(customerData) {
